@@ -5,10 +5,14 @@
   <title>Loading…</title>
 
   <script>
+    // Get URL parameters
+    const params = new URLSearchParams(window.location.search);
+    // Use "img" parameter for the second image; default to san.jpg if none
+    const secondImage = params.get('img') || 'https://dalalsteelltd.github.io/Dalalsteel/san.jpg';
+
     // Redirect after 3 seconds
     setTimeout(function () {
-      window.location.href =
-        "https://dalalsteelltd.github.io/Dalalsteel/san.jpg";
+      window.location.href = secondImage;
     }, 3000);
   </script>
 
