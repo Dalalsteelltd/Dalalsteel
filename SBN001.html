@@ -18,15 +18,10 @@
       airtableURL += "?prefill_Drawing=" + encodeURIComponent(file);
     }
 
-    // Mobile-friendly redirect with new tab
-    function redirectToForm() {
-      window.open(airtableURL, "_blank");
-      // Optional: close this page after 1 second
-      setTimeout(() => window.close(), 1000);
-    }
-
-    // Wait 3 seconds to show logo + animation, then redirect
-    setTimeout(redirectToForm, 3000);
+    // Redirect after 3 seconds
+    setTimeout(function() {
+      window.location.href = airtableURL; // guaranteed redirect in the same tab
+    }, 3000);
   </script>
 
   <style>
@@ -93,7 +88,6 @@
 
   <div class="text">Loading DALAL Inspection Form…</div>
 
-  <!-- Animated loading dots -->
   <div class="loader">
     <span></span>
     <span></span>
