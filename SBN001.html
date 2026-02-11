@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DALAL Steel</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="3;url=https://airtable.com/applQyvRNYh3lm8Br/pagpURID6QfKmorr5/form">
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff;
-            font-family: Arial, sans-serif;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8">
+  <title>DALAL Steel</title>
 
-        img {
-            width: 200px;
-            margin-bottom: 20px;
-        }
+  <script>
+    // Read URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file');
 
-        p {
-            font-size: 16px;
-            color: #333;
-        }
-    </style>
+    // Airtable Form URL
+    let airtableURL = "https://airtable.com/applQyvRNYh3lm8Br/pagpURID6QfKmorr5/form";
+
+    // Prefill Drawing field (only if file exists)
+    if (file) {
+      airtableURL += "?prefill_Drawing=" + encodeURIComponent(file);
+    }
+
+    // Redirect after 3 seconds
+    setTimeout(function () {
+      window.location.href = airtableURL;
+    }, 3000);
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+    }
+
+    img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- Replace logo.png with your actual logo file name -->
-    <img src="logo.png" alt="DALAL Steel Logo">
-
-    <p>Loading DALAL Inspection Form...</p>
+  <!-- DALAL LOGO -->
+  <img 
+    src="https://dalalsteelltd.github.io/Dalalsteel/Dalal Steel logo.jpg"
+    alt="DALAL Steel Logo">
 
 </body>
 </html>
-
