@@ -18,15 +18,14 @@
       airtableURL += "?prefill_Drawing=" + encodeURIComponent(file);
     }
 
-    // Mobile-friendly redirect
+    // Mobile-friendly redirect with new tab
     function redirectToForm() {
-      // Open in a new browser tab (avoids forcing Airtable app login)
       window.open(airtableURL, "_blank");
       // Optional: close this page after 1 second
       setTimeout(() => window.close(), 1000);
     }
 
-    // Wait 3 seconds to show logo, then redirect
+    // Wait 3 seconds to show logo + animation, then redirect
     setTimeout(redirectToForm, 3000);
   </script>
 
@@ -37,19 +36,50 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       background: #ffffff;
+      font-family: Arial, sans-serif;
+      text-align: center;
     }
 
     img {
-      max-width: 80%;
-      max-height: 80%;
+      max-width: 220px;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     .text {
       margin-top: 20px;
       font-size: 16px;
       color: #333;
-      text-align: center;
+    }
+
+    /* Loading dots animation */
+    .loader {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .loader span {
+      width: 10px;
+      height: 10px;
+      background: #203a43;
+      border-radius: 50%;
+      animation: bounce 0.6s infinite alternate;
+    }
+
+    .loader span:nth-child(2) { animation-delay: 0.2s; }
+    .loader span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      from { transform: translateY(0); opacity: 0.3; }
+      to { transform: translateY(-15px); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
@@ -62,6 +92,13 @@
     alt="DALAL Steel Logo">
 
   <div class="text">Loading DALAL Inspection Form…</div>
+
+  <!-- Animated loading dots -->
+  <div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
 </body>
 </html>
