@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Loading…</title>
+
+  <script>
+    // Read URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file'); // e.g. RF28.pdf
+
+    // Airtable form URL
+    let airtableURL = "https://airtable.com/appO7Rd95hjsHGtvR/pag6Io6qTnQDZU3sp/form";
+
+    // Pass drawing name to Airtable (optional but recommended)
+    // Change "Drawing" ONLY if your Airtable field has a different name
+    if (file) {
+      airtableURL += "?prefill_Drawing=" + encodeURIComponent(file);
+    }
+
+    // Redirect after 3 seconds
+    setTimeout(function () {
+      window.location.href = airtableURL;
+    }, 3000);
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+    }
+    img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- LOGO -->
+  <img
+    src="https://dalalsteelltd.github.io/Dalalsteel/Dalal Steel logo.jpg"
+    alt="Company Logo">
+</body>
+</html>
