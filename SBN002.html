@@ -5,13 +5,15 @@
   <title>DALAL SBN002 Dashboard</title>
 
   <script>
-    // Airtable Shared Grid View (Read-Only)
     let airtableURL = "https://1drv.ms/x/c/c5bd21bede294670/IQATixI4l3PaTazc9_WTvvxeAeJagH1w_Laq_I-Z3LqGb9Q?e=adg4t8";
 
-    // Redirect after 3 seconds
+    // Fast + smooth fade-out redirect
     setTimeout(function () {
-      window.location.href = airtableURL;
-    }, 3000);
+      document.body.style.opacity = "0";
+      setTimeout(function () {
+        window.location.href = airtableURL;
+      }, 300);
+    }, 900); // shows logo briefly then fades
   </script>
 
   <style>
@@ -21,21 +23,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       background: #ffffff;
-      font-family: Arial, sans-serif;
-      text-align: center;
+      transition: opacity 0.3s ease;
     }
 
     img {
       max-width: 220px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    .text {
-      margin-top: 20px;
-      font-size: 16px;
-      color: #333;
+      animation: fadeIn 1s ease-in-out;
     }
 
     @keyframes fadeIn {
@@ -51,8 +45,6 @@
   <img 
     src="https://dalalsteelltd.github.io/Dalalsteel/Dalal%20Steel%20logo.jpg"
     alt="DALAL Steel Logo">
-
-  <div class="text">Opening DALAL SBN002 Dashboard...</div>
 
 </body>
 </html>
